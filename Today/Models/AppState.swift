@@ -73,28 +73,18 @@ extension AppState {
 
   var menuTitle: some View {
     let title: String
-    let imageName: String
-
     let totalTodos = todos.count
     let completedTodos = todos.filter { $0.isComplete }.count
 
     if totalTodos == 0 {
       title = "To-Day"
-      imageName = "list.bullet.clipboard"
     } else if completedTodos == totalTodos {
-      title = "To-Day: complete"
-      imageName = "checklist.checked"
+      title = "All Done"
     } else {
-      title = "To-Day: \(completedTodos) of \(totalTodos) done"
-      if completedTodos == 0 {
-        imageName = "checklist.unchecked"
-      } else {
-        imageName = "checklist"
-      }
+      title = "\(completedTodos) of \(totalTodos) done"
     }
 
     return HStack {
-      Image(systemName: imageName)
       Text(title).monospacedDigit()
     }
   }

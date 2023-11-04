@@ -23,14 +23,15 @@ struct AppGroup: View {
 
       CheckForUpdatesView(updater: updaterController.updater)
 
-      Button("About To-Day…") {
+      Button("About To-Day") {
         openWindow(id: "about_today")
         NSApp.activate(ignoringOtherApps: true)
       }
 
-      Button("Quit To-Day") {
+      Button("Quit") {
         NSApp.terminate(nil)
       }
+      .keyboardShortcut(KeyEquivalent("Q"), modifiers: .command)
     }
   }
 }
